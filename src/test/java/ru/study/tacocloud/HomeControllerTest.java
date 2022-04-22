@@ -10,6 +10,6 @@ public class HomeControllerTest {
     public void testHomePage() {
        HomeController hm = new HomeController();
        String result = hm.home();
-       assertEquals(result, "Home"); 
+       assertEquals(result, "Home");
     }
 }
