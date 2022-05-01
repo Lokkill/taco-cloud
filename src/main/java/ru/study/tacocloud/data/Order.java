@@ -8,6 +8,7 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @RequiredArgsConstructor
@@ -30,7 +31,13 @@ public class Order {
     @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
     private String ccCVV;
     private Date placedAt;
+    private List<Taco> tacos;
 
     public void addDesign(Taco saved) {
+        tacos.add(saved);
+    }
+
+    public List<Taco> getTacos() {
+        return tacos;
     }
 }
