@@ -14,6 +14,7 @@ import java.sql.Timestamp;
 import java.sql.Types;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Objects;
 
 @Repository
 public class JdbcTacoRepository implements TacoRepository {
@@ -28,16 +29,16 @@ public class JdbcTacoRepository implements TacoRepository {
     public Taco save(Taco taco) {
         long tacoId = saveTacoInfo(taco);
         taco.setId(tacoId);
-        for (Ingredient ingredient : taco.getIngredients()){
-            saveIngredientToTaco(ingredient, tacoId);
+        for (String ingredientId : taco.getIngredients()){
+            saveIngredientToTaco(ingredientId, tacoId);
         }
         return taco;
     }
 
-    private void saveIngredientToTaco(Ingredient ingredient, long tacoId) {
+    private void saveIngredientToTaco(String ingredientId, long tacoId) {
         jdbc.update(
                 "insert into Taco_Ingredients (taco, ingredient) values ( ?, ? )",
-                tacoId, ingredient.getId()
+                tacoId, Long.valueOf(ingredientId)
         );
     }
 

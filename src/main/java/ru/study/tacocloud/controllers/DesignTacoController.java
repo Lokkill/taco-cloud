@@ -67,7 +67,7 @@ public class DesignTacoController {
         }
         Taco saved = designRepository.save(design);
         order.addDesign(saved);
-        log.info("Processing design: " + design);
+        //log.info("Processing design: " + design);
         return "redirect:/orders/current";
     }
 }
