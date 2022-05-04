@@ -4,7 +4,7 @@
 -- delete from Taco_Order;
 -- delete from Ingredient;
 
-insert into Ingredient (id, name, type) values (1, 'Flour Tortilla', 'WRAP');
+insert into Ingredient (id, name, type) values(1, 'Flour Tortilla', 'WRAP');
 insert into Ingredient (id, name, type) values(2, 'Corn Tortilla', 'WRAP');
 insert into Ingredient (id, name, type) values(3, 'Ground Beef', 'PROTEIN');
 insert into Ingredient (id, name, type) values(4, 'Carnitas', 'PROTEIN');

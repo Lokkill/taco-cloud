@@ -6,22 +6,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Data
 @RequiredArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
 @Entity
+@Table(name = "Ingredient")
 public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private final Long id;
     private final String name;
+    @Enumerated(EnumType.STRING)
     private final Type type;
 
     public static enum Type{

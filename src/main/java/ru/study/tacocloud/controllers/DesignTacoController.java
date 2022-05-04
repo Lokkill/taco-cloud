@@ -1,5 +1,7 @@
 package ru.study.tacocloud.controllers;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,7 @@ import ru.study.tacocloud.repositories.TacoRepository;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -23,7 +26,7 @@ import java.util.List;
 @SessionAttributes("order")
 public class DesignTacoController {
 
-    private final IngredientRepository ingredientRepository;
+    private IngredientRepository ingredientRepository;
 
     private TacoRepository designRepository;
 
@@ -47,7 +50,6 @@ public class DesignTacoController {
     public String showDesignForm(Model model) {
         List<Ingredient> ingredients = new ArrayList<>();
         ingredientRepository.findAll().forEach(ingredients::add);
-
         Type[] types = Ingredient.Type.values();
 
         for (Type type : types) {

@@ -8,13 +8,13 @@ import java.util.List;
 
 public interface OrderRepository extends CrudRepository<Order, Long> {
 
-    List<Order> findByDeliveryZip(String deliveryZip);
+    List<Order> findByZip(String deliveryZip);
 
-    List<Order> readOrdersByDeliveryZipAndPlacedAtBetween(String deliveryZip,
+    List<Order> readOrdersByZipAndPlacedAtBetween(String deliveryZip,
                                                           Date startDate,
                                                           Date endDate);
 
-    List<Order> findByDeliveryToAndDeliveryCityAllIgnoresCase(String deliveryTo, String deliveryCity);
+    //List<Order> findByDeliveryToAndCityAllIgnoresCase(String deliveryTo, String deliveryCity);
 
-    List<Order> findByDeliveryCityOrderByDeliveryTo(String city);
+    //List<Order> findByCityOrderByDeliveryTo(String city);
 }

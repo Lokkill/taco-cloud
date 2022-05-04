@@ -1,5 +1,6 @@
 package ru.study.tacocloud.controllers;
 
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("/orders")
 @SessionAttributes("order")
+@NoArgsConstructor
 public class OrderController {
 
     private OrderRepository orderRepo;
@@ -29,7 +31,6 @@ public class OrderController {
 
     @GetMapping("/current")
     public String orderForm() {
-       // model.addAttribute("order", new Order());
         return "orderForm";
     }
 
@@ -42,7 +43,6 @@ public class OrderController {
 
         orderRepo.save(order);
         sessionStatus.setComplete();
-        //log.info("Order submitted: " + order);
         return "redirect:/";
     }
 }
