@@ -10,8 +10,8 @@ import ru.study.tacocloud.data.Ingredient;
 import ru.study.tacocloud.data.Ingredient.Type;
 import ru.study.tacocloud.data.Order;
 import ru.study.tacocloud.data.Taco;
-import ru.study.tacocloud.service.IngredientRepository;
-import ru.study.tacocloud.service.TacoRepository;
+import ru.study.tacocloud.repositories.IngredientRepository;
+import ru.study.tacocloud.repositories.TacoRepository;
 
 import javax.validation.Valid;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package ru.study.tacocloud.service;
+package ru.study.tacocloud.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 import ru.study.tacocloud.data.Order;
