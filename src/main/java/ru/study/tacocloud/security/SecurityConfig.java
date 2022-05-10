@@ -22,8 +22,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+//    @Autowired
+//    private UserDetailsService userDetailsService;
 
 //    @Autowired
 //    DataSource dataSource;
@@ -74,6 +74,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .access("permitAll()")
                 .and()
                 .formLogin()
-                .loginPage("/login");
+                .loginPage("/login")
+                //.loginProcessingUrl("/perform-login")
+                .defaultSuccessUrl("/design", true)
+                .and()
+                .logout()
+                .logoutSuccessUrl("/");
     }
 }
