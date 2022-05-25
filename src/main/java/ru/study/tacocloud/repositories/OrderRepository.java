@@ -1,7 +1,9 @@
 package ru.study.tacocloud.repositories;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 import ru.study.tacocloud.data.Order;
+import ru.study.tacocloud.data.User;
 
 import java.util.Date;
 import java.util.List;
@@ -14,7 +16,6 @@ public interface OrderRepository extends CrudRepository<Order, Long> {
                                                           Date startDate,
                                                           Date endDate);
 
-    //List<Order> findByDeliveryToAndCityAllIgnoresCase(String deliveryTo, String deliveryCity);
+    List<Order> findByUserOrderByPlacedAtDesc(User user, Pageable pageable);
 
-    //List<Order> findByCityOrderByDeliveryTo(String city);
 }
